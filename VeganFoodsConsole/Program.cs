@@ -10,6 +10,13 @@ namespace VeganFoodsConsole
     {
         static void Main(string[] args)
         {
+            Program myProgram = new Program();
+            myProgram.Run();
+        }
+
+        private void Run()
+        {
+            throw new NotImplementedException();
         }
     }
 }
