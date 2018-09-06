@@ -4,9 +4,9 @@ using Xunit;
 
 namespace VeganFoodsTests
 {
-    public class UnitTest1
+    public class VeganFoodsTests
     {
-        [Fact]
+        [Theory]
         public void TestMethod1()
         {
         }
