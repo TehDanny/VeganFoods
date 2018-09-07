@@ -6,7 +6,7 @@ namespace VeganFoodsTests
 {
     public class VeganFoodsTests
     {
-        [Theory]
+        [Fact]
         public void TestMethod1()
         {
         }
