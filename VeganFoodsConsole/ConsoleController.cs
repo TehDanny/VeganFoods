@@ -8,7 +8,7 @@ namespace VeganFoodsConsole
 {
     class ConsoleController : IConsoleController
     {
-        public void CreateRecipe(List<string> recipeData)
+        public void CreateRecipe(string[] recipeData)
         {
             throw new NotImplementedException();
         }

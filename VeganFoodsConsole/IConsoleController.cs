@@ -10,7 +10,7 @@ namespace VeganFoodsConsole
     {
         List<string> GetAllRecipes();
         List<string> GetAllIngredientsOfType();
-        void CreateRecipe(List<string> recipeData);
+        void CreateRecipe(string[] recipeData);
         void UpdateRecipe(int recipeID);
         void DeleteRecipe(int recipeID);
     }

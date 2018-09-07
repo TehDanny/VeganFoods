@@ -6,28 +6,36 @@ namespace VeganFoodsBusinessLogic
 {
     class BusinessController : IBusinessController
     {
-        public void CreateRecipe(List<string> recipeData)
+        DataController dataController = new DataController();
+
+        public void CreateRecipe(string[] recipeData)
         {
+            //Recipe recipe = ConvertRecipeStringArrayToRecipe(recipeData);
+            //dataController.Create(recipe);
             throw new NotImplementedException();
         }
 
         public void DeleteRecipe(int recipeID)
         {
+            //dataController.Delete(recipeID);
             throw new NotImplementedException();
         }
 
-        public List<string> GetAllIngredientsOfType()
+        public List<string> GetAllIngredientsOfType(string ingredientType)
         {
+            //dataController.Read(ingredientType);
             throw new NotImplementedException();
         }
 
         public List<string> GetAllRecipes()
         {
+            //dataController.Read();
             throw new NotImplementedException();
         }
 
         public void UpdateRecipe(int recipeID)
         {
+            //dataController.Update(recipeID);
             throw new NotImplementedException();
         }
 
@@ -53,6 +61,11 @@ namespace VeganFoodsBusinessLogic
             }
 
             return stringList;
+        }
+
+        private Recipe ConvertRecipeStringArrayToRecipe(string[] recipeData)
+        {
+            return new Recipe(int.Parse(recipeData[0]), int.Parse(recipeData[1]), recipeData[2]);
         }
     }
 }
