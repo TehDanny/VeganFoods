@@ -6,24 +6,53 @@ namespace VeganFoodsBusinessLogic
 {
     class BusinessController : IBusinessController
     {
-        public void CreateRecipe()
+        public void CreateRecipe(List<string> recipeData)
         {
             throw new NotImplementedException();
         }
 
-        public string[] GetAllIngredientsOfType()
+        public void DeleteRecipe(int recipeID)
         {
             throw new NotImplementedException();
         }
 
-        public string[] GetAllRecipes()
+        public List<string> GetAllIngredientsOfType()
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateRecipe()
+        public List<string> GetAllRecipes()
         {
             throw new NotImplementedException();
+        }
+
+        public void UpdateRecipe(int recipeID)
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<string> ConvertRecipeListToStringList(List<Recipe> recipeList)
+        {
+            var stringList = new List<string>();
+
+            foreach (var recipe in recipeList)
+            {
+                stringList.Add(recipe.Name);
+            }
+
+            return stringList;
+        }
+
+        private List<string> ConvertIngredientListToStringList(List<Ingredient> ingredientList)
+        {
+            var stringList = new List<string>();
+
+            foreach (var ingredient in ingredientList)
+            {
+                stringList.Add(ingredient.Name);
+            }
+
+            return stringList;
         }
     }
 }
