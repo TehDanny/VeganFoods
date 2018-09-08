@@ -6,22 +6,32 @@ namespace VeganFoodsBusinessLogic
 {
     class DataController : IDataController
     {
-        public void Create()
+        public void CreateRecipe(Recipe recipe)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete()
+        public void DeleteRecipe(int recipeID)
         {
             throw new NotImplementedException();
         }
 
-        public void Read()
+        public List<Ingredient> GetAllIngredientsOfRecipe(int recipeID)
         {
             throw new NotImplementedException();
         }
 
-        public void Update()
+        public List<Ingredient> GetAllIngredientsOfType(string type)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Recipe> GetAllRecipes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateRecipe(int recipeID)
         {
             throw new NotImplementedException();
         }

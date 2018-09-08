@@ -10,33 +10,41 @@ namespace VeganFoodsBusinessLogic
 
         public void CreateRecipe(string[] recipeData)
         {
-            //Recipe recipe = ConvertRecipeStringArrayToRecipe(recipeData);
-            //dataController.Create(recipe);
-            throw new NotImplementedException();
-        }
-
-        public void DeleteRecipe(int recipeID)
-        {
-            //dataController.Delete(recipeID);
-            throw new NotImplementedException();
-        }
-
-        public List<string> GetAllIngredientsOfType(string ingredientType)
-        {
-            //dataController.Read(ingredientType);
-            throw new NotImplementedException();
+            Recipe recipe = ConvertRecipeStringArrayToRecipe(recipeData);
+            dataController.CreateRecipe(recipe);
         }
 
         public List<string> GetAllRecipes()
         {
-            //dataController.Read();
-            throw new NotImplementedException();
+            List<Recipe> recipeList = dataController.GetAllRecipes();
+            List<string> recipeStringList = ConvertRecipeListToStringList(recipeList);
+            return recipeStringList;
+        }
+
+        public List<string> GetAllIngredientsOfRecipe(int recipeID)
+        {
+            List<Ingredient> ingredientList = dataController.GetAllIngredientsOfRecipe(recipeID);
+            List<string> IngredientStringList = ConvertIngredientListToStringList(ingredientList);
+            return IngredientStringList;
+        }
+
+        public List<string> GetAllIngredientsOfType(string ingredientType)
+        {
+            List<Ingredient> ingredientList = dataController.GetAllIngredientsOfType(ingredientType);
+
+            List<string> IngredientsStringList = ConvertIngredientListToStringList(ingredientList);
+
+            return IngredientsStringList;
         }
 
         public void UpdateRecipe(int recipeID)
         {
-            //dataController.Update(recipeID);
-            throw new NotImplementedException();
+            dataController.UpdateRecipe(recipeID);
+        }
+
+        public void DeleteRecipe(int recipeID)
+        {
+            dataController.DeleteRecipe(recipeID);
         }
 
         private List<string> ConvertRecipeListToStringList(List<Recipe> recipeList)
