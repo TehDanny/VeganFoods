@@ -7,16 +7,17 @@ namespace VeganFoodsBusinessLogic
 {
     class DataController : IDataController
     {
-        private MySqlConnection connectionString;
+        private VeganFoodsDataContext context;
 
         public DataController()
         {
-            connectionString = new MySqlConnection("Server=localhost;database=VeganFoods;uid=root;Pwd=admin");
+            context = new VeganFoodsDataContext();
         }
 
         public void CreateRecipe(Recipe recipe)
         {
-            throw new NotImplementedException();
+            context.SubmitOnChanges(recipe);
+            context.SubmitChanges();
         }
 
         public void DeleteRecipe(int recipeID)
@@ -36,7 +37,11 @@ namespace VeganFoodsBusinessLogic
 
         public List<Recipe> GetAllRecipes()
         {
-            throw new NotImplementedException();
+            var query = from recipe in context.Recipes
+                        orderby recipe.Name
+                        select recipe;
+
+            return query;
         }
 
         public void UpdateRecipe(int recipeID)
