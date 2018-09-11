@@ -16,7 +16,7 @@ namespace VeganFoodsBusinessLogic
 
         public void CreateRecipe(Recipe recipe)
         {
-            context.SubmitOnChanges(recipe);
+            context.InsertOnSubmit(recipe);
             context.SubmitChanges();
         }
 
