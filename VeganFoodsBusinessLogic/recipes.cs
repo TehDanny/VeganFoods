@@ -7,22 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VeganFoodsDataLogic
+namespace VeganFoodsBusinessLogic
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ingredients
+    public partial class recipes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ingredients()
+        public recipes()
         {
             this.recipeingredients = new HashSet<recipeingredients>();
         }
     
-        public int IngredientID { get; set; }
+        public int RecipeID { get; set; }
+        public int RecipeIngredientsID { get; set; }
         public string Name { get; set; }
-        public string Type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<recipeingredients> recipeingredients { get; set; }

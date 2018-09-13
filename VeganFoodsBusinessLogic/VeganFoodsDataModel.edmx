@@ -136,7 +136,7 @@ FROM `recipeingredients` AS `recipeingredients`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="vegan_foodsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="VeganFoodsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ingredients" EntityType="Self.ingredients" />
           <EntitySet Name="recipes" EntityType="Self.recipes" />
           <EntitySet Name="recipeingredients" EntityType="Self.recipeingredients" />
@@ -154,7 +154,7 @@ FROM `recipeingredients` AS `recipeingredients`</DefiningQuery>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VeganFoodsModelStoreContainer" CdmEntityContainer="vegan_foodsEntities">
+        <EntityContainerMapping StorageEntityContainer="VeganFoodsModelStoreContainer" CdmEntityContainer="VeganFoodsEntities">
           <EntitySetMapping Name="ingredients">
             <EntityTypeMapping TypeName="VeganFoodsModel.ingredients">
               <MappingFragment StoreEntitySet="ingredients">

@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VeganFoodsDataLogic
+namespace VeganFoodsBusinessLogic
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class vegan_foodsEntities : DbContext
+    public partial class VeganFoodsEntities : DbContext
     {
-        public vegan_foodsEntities()
-            : base("name=vegan_foodsEntities")
+        public VeganFoodsEntities()
+            : base("name=VeganFoodsEntities")
         {
         }
     

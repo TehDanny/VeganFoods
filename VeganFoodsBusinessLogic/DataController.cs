@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MySql.Data.MySqlClient;
 
 namespace VeganFoodsBusinessLogic
 {
     class DataController : IDataController
     {
-        private VeganFoodsDataContext context;
+        private VeganFoodsEntities context;
 
         public DataController()
         {
-            context = new VeganFoodsDataContext();
+            context = new VeganFoodsEntities();
         }
 
         public void CreateRecipe(Recipe recipe)
         {
-            context.InsertOnSubmit(recipe);
-            context.SubmitChanges();
+            context.recipes.Add(recipe);
+            context.SaveChanges();
         }
 
         public void DeleteRecipe(int recipeID)
@@ -37,8 +36,8 @@ namespace VeganFoodsBusinessLogic
 
         public List<Recipe> GetAllRecipes()
         {
-            var query = from recipe in context.Recipes
-                        orderby recipe.Name
+            var query = from recipe in context.recipes
+                        orderby recipe.name
                         select recipe;
 
             return query;

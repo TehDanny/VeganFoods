@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VeganFoodsDataLogic
+namespace VeganFoodsBusinessLogic
 {
     using System;
     using System.Collections.Generic;
