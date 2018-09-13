@@ -6,22 +6,23 @@ namespace VeganFoodsBusinessLogic
 {
     class DataController : IDataController
     {
-        private VeganFoodsEntities context;
+        private VeganFoodsEntities vfe;
 
         public DataController()
         {
-            context = new VeganFoodsEntities();
+            vfe = new VeganFoodsEntities();
         }
 
         public void CreateRecipe(Recipe recipe)
         {
-            context.recipes.Add(recipe);
-            context.SaveChanges();
+            vfe.recipes.Add(recipe);
+            vfe.SaveChanges();
         }
 
         public void DeleteRecipe(int recipeID)
         {
-            throw new NotImplementedException();
+            vfe.recipes.Remove(recipeID);
+            vfe.SaveChanges();
         }
 
         public List<Ingredient> GetAllIngredientsOfRecipe(int recipeID)
@@ -36,7 +37,7 @@ namespace VeganFoodsBusinessLogic
 
         public List<Recipe> GetAllRecipes()
         {
-            var query = from recipe in context.recipes
+            var query = from recipe in vfe.recipes
                         orderby recipe.name
                         select recipe;
 
