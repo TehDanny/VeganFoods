@@ -16,7 +16,24 @@ namespace VeganFoodsConsole
 
         private void Run()
         {
-            throw new NotImplementedException();
+            PrintTitle();
+            PrintMainMenu();
+            Console.ReadLine();
+        }
+
+        private void PrintMainMenu()
+        {
+            Console.WriteLine("1. Se alle opskrifter" +
+                "\n2. Opret ny opskrift" +
+                "\n3. Redigér en opskrift" +
+                "\n4. Afslut program");
+        }
+
+        private void PrintTitle()
+        {
+            Console.WriteLine("********************************************************************************");
+            Console.WriteLine("********************************* VEGAN FOODS **********************************");
+            Console.WriteLine("********************************************************************************");
         }
     }
 }
