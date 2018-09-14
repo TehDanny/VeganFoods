@@ -37,9 +37,10 @@ namespace VeganFoodsBusinessLogic
             return IngredientsStringList;
         }
 
-        public void UpdateRecipe(int recipeID)
+        public void UpdateRecipe(string[] recipeData)
         {
-            dataController.UpdateRecipe(recipeID);
+            Recipe recipe = ConvertRecipeStringArrayToRecipe(recipeData);
+            dataController.UpdateRecipe(recipe);
         }
 
         public void DeleteRecipe(int recipeID)

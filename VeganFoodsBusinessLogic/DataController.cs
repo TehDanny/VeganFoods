@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace VeganFoodsBusinessLogic
 {
@@ -21,7 +22,11 @@ namespace VeganFoodsBusinessLogic
 
         public void DeleteRecipe(int recipeID)
         {
-            vfe.recipes.Remove(recipeID);
+            var query = from recipe in vfe.recipes
+                        where recipe.RecipeID == recipeID
+                        select recipe;
+
+            vfe.recipes.Remove(query);
             vfe.SaveChanges();
         }
 
@@ -38,13 +43,13 @@ namespace VeganFoodsBusinessLogic
         public List<Recipe> GetAllRecipes()
         {
             var query = from recipe in vfe.recipes
-                        orderby recipe.name
+                        orderby recipe.Name
                         select recipe;
 
             return query;
         }
 
-        public void UpdateRecipe(int recipeID)
+        public void UpdateRecipe(Recipe recipe)
         {
             throw new NotImplementedException();
         }

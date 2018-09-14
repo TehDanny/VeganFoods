@@ -10,7 +10,7 @@ namespace VeganFoodsBusinessLogic
         List<Recipe> GetAllRecipes();
         List<Ingredient> GetAllIngredientsOfRecipe(int recipeID);
         List<Ingredient> GetAllIngredientsOfType(string type);
-        void UpdateRecipe(int recipeID);
+        void UpdateRecipe(Recipe recipe);
         void DeleteRecipe(int recipeID);
     }
 }
