@@ -16,21 +16,21 @@ namespace VeganFoodsBusinessLogic
 
         public List<string> GetAllRecipes()
         {
-            List<Recipe> recipeList = dataController.GetAllRecipes();
+            IReadOnlyList<Recipe> recipeList = dataController.GetAllRecipes();
             List<string> recipeStringList = ConvertRecipeListToStringList(recipeList);
             return recipeStringList;
         }
 
         public List<string> GetAllIngredientsOfRecipe(int recipeID)
         {
-            List<Ingredient> ingredientList = dataController.GetAllIngredientsOfRecipe(recipeID);
+            IReadOnlyList<Ingredient> ingredientList = dataController.GetAllIngredientsOfRecipe(recipeID);
             List<string> IngredientStringList = ConvertIngredientListToStringList(ingredientList);
             return IngredientStringList;
         }
 
         public List<string> GetAllIngredientsOfType(string ingredientType)
         {
-            List<Ingredient> ingredientList = dataController.GetAllIngredientsOfType(ingredientType);
+            IReadOnlyList<Ingredient> ingredientList = dataController.GetAllIngredientsOfType(ingredientType);
 
             List<string> IngredientsStringList = ConvertIngredientListToStringList(ingredientList);
 
@@ -48,7 +48,7 @@ namespace VeganFoodsBusinessLogic
             dataController.DeleteRecipe(recipeID);
         }
 
-        private List<string> ConvertRecipeListToStringList(List<Recipe> recipeList)
+        private List<string> ConvertRecipeListToStringList(IReadOnlyList<Recipe> recipeList)
         {
             var stringList = new List<string>();
 
@@ -60,7 +60,7 @@ namespace VeganFoodsBusinessLogic
             return stringList;
         }
 
-        private List<string> ConvertIngredientListToStringList(List<Ingredient> ingredientList)
+        private List<string> ConvertIngredientListToStringList(IReadOnlyList<Ingredient> ingredientList)
         {
             var stringList = new List<string>();
 
