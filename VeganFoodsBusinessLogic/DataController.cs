@@ -54,7 +54,9 @@ namespace VeganFoodsBusinessLogic
 
         public void UpdateRecipe(Recipe recipe)
         {
-            throw new NotImplementedException();
+            var oldRecipe = context.recipes.Find(recipe.RecipeID);
+            oldRecipe.Name = recipe.Name;
+            context.SaveChanges();
         }
     }
 }
