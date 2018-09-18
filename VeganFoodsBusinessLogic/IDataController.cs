@@ -7,9 +7,9 @@ namespace VeganFoodsBusinessLogic
     interface IDataController
     {
         void CreateRecipe(Recipe recipe);
-        List<Recipe> GetAllRecipes();
-        List<Ingredient> GetAllIngredientsOfRecipe(int recipeID);
-        List<Ingredient> GetAllIngredientsOfType(string type);
+        IReadOnlyList<Recipe> GetAllRecipes();
+        IReadOnlyList<Ingredient> GetAllIngredientsOfRecipe(int recipeID);
+        IReadOnlyList<Ingredient> GetAllIngredientsOfType(string type);
         void UpdateRecipe(Recipe recipe);
         void DeleteRecipe(int recipeID);
     }

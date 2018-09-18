@@ -7,46 +7,49 @@ namespace VeganFoodsBusinessLogic
 {
     class DataController : IDataController
     {
-        private VeganFoodsEntities vfe;
+        private VeganFoodsEntities context;
 
         public DataController()
         {
-            vfe = new VeganFoodsEntities();
+            context = new VeganFoodsEntities();
         }
 
         public void CreateRecipe(Recipe recipe)
         {
-            vfe.recipes.Add(recipe);
-            vfe.SaveChanges();
+            context.recipes.Add(new recipes { RecipeID = recipe.RecipeID, RecipeIngredientsID = recipe.RecipeIngredientsID, Name = recipe.Name });
+            context.SaveChanges();
         }
 
         public void DeleteRecipe(int recipeID)
         {
-            var query = from recipe in vfe.recipes
-                        where recipe.RecipeID == recipeID
-                        select recipe;
+            var recipe = context.recipes.Find(recipeID);
 
-            vfe.recipes.Remove(query);
-            vfe.SaveChanges();
+            context.recipes.Remove(recipe);
+            context.SaveChanges();
         }
 
-        public List<Ingredient> GetAllIngredientsOfRecipe(int recipeID)
+        public IReadOnlyList<Ingredient> GetAllIngredientsOfRecipe(int recipeID)
         {
             throw new NotImplementedException();
         }
 
-        public List<Ingredient> GetAllIngredientsOfType(string type)
+        public IReadOnlyList<Ingredient> GetAllIngredientsOfType(string type)
         {
             throw new NotImplementedException();
         }
 
-        public List<Recipe> GetAllRecipes()
+        public IReadOnlyList<Recipe> GetAllRecipes()
         {
-            var query = from recipe in vfe.recipes
+            var query = from recipe in context.recipes
                         orderby recipe.Name
-                        select recipe;
+                        select new Recipe
+                        {
+                            Name = recipe.Name,
+                            RecipeID = recipe.RecipeID,
+                            RecipeIngredientsID = recipe.RecipeIngredientsID
+                        };
 
-            return query;
+            return query.ToList();
         }
 
         public void UpdateRecipe(Recipe recipe)

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VeganFoodsBusinessLogic
 {
-    class Ingredient
+    public class Ingredient
     {
         public int IngredientID { get; set; }
         public string Name { get; set; }
