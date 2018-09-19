@@ -21,11 +21,11 @@ namespace VeganFoodsBusinessLogic
             return recipeStringList;
         }
 
-        public List<string> GetAllIngredientsOfRecipe(int recipeID)
+        public List<string> GetAllRecipeIngredients(int recipeID)
         {
-            IReadOnlyList<Ingredient> ingredientList = dataController.GetAllIngredientsOfRecipe(recipeID);
-            List<string> IngredientStringList = ConvertIngredientListToStringList(ingredientList);
-            return IngredientStringList;
+            IReadOnlyList<RecipeIngredient> recipeIngredientList = dataController.GetAllRecipeIngredients(recipeID);
+            List<string> RecipeIngredientStringList = ConvertRecipeIngredientListToStringList(recipeIngredientList);
+            return RecipeIngredientStringList;
         }
 
         public List<string> GetAllIngredientsOfType(string ingredientType)
@@ -70,6 +70,24 @@ namespace VeganFoodsBusinessLogic
             }
 
             return stringList;
+        }
+
+        private List<string> ConvertRecipeIngredientListToStringList(IReadOnlyList<RecipeIngredient> recipeIngredientList)
+        {
+            /*
+            var stringList = new List<string>();
+            Ingredient ingredient; 
+
+            foreach (var recipeIngredient in recipeIngredientList)
+            {
+                ingredient = dataController.GetIngredient();
+                stringList.Add(recipeIngredient.);
+            }
+
+            return stringList;
+            */
+
+            throw new NotImplementedException();
         }
 
         private Recipe ConvertRecipeStringArrayToRecipe(string[] recipeData)

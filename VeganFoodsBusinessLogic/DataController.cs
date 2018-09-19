@@ -28,12 +28,12 @@ namespace VeganFoodsBusinessLogic
             context.SaveChanges();
         }
 
-        public IReadOnlyList<Ingredient> GetAllIngredientsOfRecipe(int recipeID)
+        public IReadOnlyList<Ingredient> GetAllIngredientsOfType(string type)
         {
             throw new NotImplementedException();
         }
 
-        public IReadOnlyList<Ingredient> GetAllIngredientsOfType(string type)
+        public IReadOnlyList<RecipeIngredient> GetAllRecipeIngredients(int recipeID)
         {
             throw new NotImplementedException();
         }
